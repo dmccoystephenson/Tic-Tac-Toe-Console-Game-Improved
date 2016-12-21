@@ -41,7 +41,7 @@ public class StringGrid {
 		
 		int r = y - 1;
 		int c = ((int) x - 97);
-		System.out.println("Checking if grid[" + r + "][" + c + "] is empty: " + (grid[r][c].equals(" [ ] ")));
+		//System.out.println("Checking if grid[" + r + "][" + c + "] is empty: " + (grid[r][c].equals(" [ ] ")));
 		return grid[r][c].equals(" [ ] ");
 		
 	}
@@ -53,7 +53,7 @@ public class StringGrid {
 		int r = y - 1;
 		int c = ((int) x - 97);
 		grid[r][c] = " [" + change + "] ";
-		System.out.println("Changing grid[" + r + "][" + c + "] to ' [" + change + "] '");
+		//System.out.println("Changing grid[" + r + "][" + c + "] to ' [" + change + "] '");
 	}
 	
 	public boolean checkFull() {
@@ -64,7 +64,7 @@ public class StringGrid {
 				}
 			}
 		}
-		System.out.println("Grid is full!");
+		//System.out.println("Grid is full!");
 		return true;
 	}
 }

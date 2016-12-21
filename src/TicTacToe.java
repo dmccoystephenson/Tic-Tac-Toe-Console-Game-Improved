@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 public class TicTacToe {
 	static Scanner scanner = new Scanner(System.in);
 	
@@ -78,13 +79,14 @@ public class TicTacToe {
 		while (true) {
 			Player player1 = new Player(grid, "X");
 			grid.printGrid();
-			player1.move(); //don't forget: THREE IN A ROW METHOD!
+			player1.move();
 			
 			if (checkIfWon().equals("X")) {
 				grid.printGrid();
 				System.out.println("Player 1 Wins!");
 				break;
 			}
+			
 			if (checkIfWon().equals("O")) {
 				grid.printGrid();
 				System.out.println("Player 2 Wins!");
@@ -106,13 +108,13 @@ public class TicTacToe {
 				System.out.println("Player 1 Wins!");
 				break;
 			}
+			
 			if (checkIfWon().equals("O")) {
 				grid.printGrid();
 				System.out.println("Player 2 Wins!");
 				break;
 			}
 		}
-
 	}
 	
 	public static void PVB() {
@@ -120,12 +122,14 @@ public class TicTacToe {
 			Player human = new Player(grid, "X");
 			grid.printGrid();
 			human.move();
+			grid.printGrid();
 			
 			if (checkIfWon().equals("X")) {
 				grid.printGrid();
 				System.out.println("You win!");
 				break;
 			}
+			
 			if (checkIfWon().equals("O")) {
 				grid.printGrid();
 				System.out.println("You lose!");
@@ -139,21 +143,28 @@ public class TicTacToe {
 			}
 			
 			RandomAI opponent = new RandomAI(grid, "O");
-			opponent.move();
 			
+			try {
+				TimeUnit.SECONDS.sleep(1);
+			} 
+			catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			opponent.move();
+
 			if (checkIfWon().equals("X")) {
 				grid.printGrid();
 				System.out.println("You win!");
 				break;
 			}
+			
 			if (checkIfWon().equals("O")) {
 				grid.printGrid();
 				System.out.println("You lose!");
 				break;
 			}
-
 		}
-
 	}
 	
 	public static void PVG() {
@@ -166,36 +177,64 @@ public class TicTacToe {
 		while (true) {
 			
 			RandomAI contestant1 = new RandomAI(grid, "X");
+			
+			try {
+				TimeUnit.SECONDS.sleep(1);
+			} 
+			catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
 			grid.printGrid();
 			contestant1.move();
 			
 			if (checkIfWon().equals("X")) {
+				try {
+					TimeUnit.SECONDS.sleep(1);
+				} 
+				catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 				grid.printGrid();
 				System.out.println("Contestant 1 wins!");
 				break;
 			}
-			if (checkIfWon().equals("O")) {
-				grid.printGrid();
-				System.out.println("Contestant 2 wins!");
-				break;
-			}
 			
 			if (grid.checkFull()) {
+				
+				try {
+					TimeUnit.SECONDS.sleep(1);
+				} 
+				catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
 				grid.printGrid();
 				System.out.println("It's a tie!");
 				break;
 			}
 			
 			RandomAI contestant2 = new RandomAI(grid, "O");
+			
+			try {
+				TimeUnit.SECONDS.sleep(1);
+			} 
+			catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
 			grid.printGrid();
 			contestant2.move();
-			
-			if (checkIfWon().equals("X")) {
-				grid.printGrid();
-				System.out.println("Contestant 1 wins!");
-				break;
-			}
+						
 			if (checkIfWon().equals("O")) {
+				
+				try {
+					TimeUnit.SECONDS.sleep(1);
+				} 
+				catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
 				grid.printGrid();
 				System.out.println("Contestant 2 wins!");
 				break;
