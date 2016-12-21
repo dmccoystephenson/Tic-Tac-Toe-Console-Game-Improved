@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 public class TicTacToe {
@@ -50,28 +51,32 @@ public class TicTacToe {
 		System.out.println("[4] BadAI VS BadAI");
 		System.out.println("[5] BadAI VS GoodAI");
 		System.out.println("[6] GoodAI VS GoodAI");
-		int mode = scanner.nextInt();
+		
+		String mode = scanner.next();
 		
 		switch(mode) {
-		case 1:
+		case "1":
 			PVP();
 			break;
-		case 2:
+		case "2":
 			PVB();
 			break;
-		case 3:
+		case "3":
 			PVG();
 			break;
-		case 4:
+		case "4":
 			BVB();
 			break;
-		case 5:
+		case "5":
 			BVG();
 			break;
-		case 6:
+		case "6":
 			GVG();
 			break; 
-		//handle input error!
+		default:
+			System.out.println("Not an option!");
+			selectMode();
+			break;
 		}
 	}
 	
